@@ -1,0 +1,10 @@
+[package]
+name = "protocol-openai"
+description = "OpenAI Chat Completions protocol adapter (SSE)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+ccb-api.workspace = true

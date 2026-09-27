@@ -1,0 +1,10 @@
+[package]
+name = "ccb-tui"
+description = "ratatui terminal interface (REPL, prompts, dialogs)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+ccb-core.workspace = true

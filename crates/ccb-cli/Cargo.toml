@@ -1,0 +1,18 @@
+[package]
+name = "ccb-cli"
+description = "Command-line entry point: argument parsing and fast-paths."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "ccb"
+path = "src/main.rs"
+
+[dependencies]
+ccb-config.workspace = true
+ccb-context.workspace = true
+ccb-core.workspace = true
+ccb-mcp.workspace = true
+ccb-tui.workspace = true

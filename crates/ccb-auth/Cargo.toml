@@ -1,0 +1,10 @@
+[package]
+name = "ccb-auth"
+description = "Explicit API key resolution and storage (no OAuth)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+ccb-config.workspace = true

@@ -1,0 +1,10 @@
+[package]
+name = "ccb-context"
+description = "System prompt construction: CLAUDE.md, git, and memory."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+ccb-core.workspace = true

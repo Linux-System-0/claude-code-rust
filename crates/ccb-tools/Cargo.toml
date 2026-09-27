@@ -1,0 +1,12 @@
+[package]
+name = "ccb-tools"
+description = "Tool trait, registry, dispatch, and the built-in tool whitelist."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+ccb-auth.workspace = true
+ccb-permissions.workspace = true
+ccb-config.workspace = true

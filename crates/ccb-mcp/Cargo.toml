@@ -1,0 +1,10 @@
+[package]
+name = "ccb-mcp"
+description = "Model Context Protocol client and server (no OAuth)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+ccb-core.workspace = true

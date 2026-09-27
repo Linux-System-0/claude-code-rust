@@ -1,0 +1,85 @@
+# Claude Code (Rust rewrite) — workspace root.
+#
+# Layout and dependency direction are defined in Plan/02-architecture.md.
+# Phase 0 / T0.1 only establishes the crate skeleton and the layering;
+# functionality is filled in by later phases.
+
+[workspace]
+resolver = "2"
+members = [
+    "crates/ccb-cli",
+    "crates/ccb-config",
+    "crates/ccb-core",
+    "crates/ccb-auth",
+    "crates/ccb-api",
+    "crates/ccb-api/protocol-anthropic",
+    "crates/ccb-api/protocol-openai",
+    "crates/ccb-tools",
+    "crates/ccb-permissions",
+    "crates/ccb-mcp",
+    "crates/ccb-session",
+    "crates/ccb-tui",
+    "crates/ccb-context",
+    "crates/ccb-telemetry",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+authors = ["claude-code-rust contributors"]
+repository = "https://github.com/Linux-System-0/claude-code-rust"
+homepage = "https://github.com/Linux-System-0/claude-code-rust"
+# Never publish to crates.io; distribution is via release binaries.
+publish = false
+
+[workspace.dependencies]
+# --- internal crates ---------------------------------------------------------
+ccb-api = { path = "crates/ccb-api" }
+ccb-auth = { path = "crates/ccb-auth" }
+ccb-config = { path = "crates/ccb-config" }
+ccb-context = { path = "crates/ccb-context" }
+ccb-core = { path = "crates/ccb-core" }
+ccb-mcp = { path = "crates/ccb-mcp" }
+ccb-permissions = { path = "crates/ccb-permissions" }
+ccb-session = { path = "crates/ccb-session" }
+ccb-telemetry = { path = "crates/ccb-telemetry" }
+ccb-tools = { path = "crates/ccb-tools" }
+ccb-tui = { path = "crates/ccb-tui" }
+protocol-anthropic = { path = "crates/ccb-api/protocol-anthropic" }
+protocol-openai = { path = "crates/ccb-api/protocol-openai" }
+
+# --- external crates ---------------------------------------------------------
+# Declared here so members can inherit with `workspace = true`. They are pulled
+# in as each phase starts using them (see Plan/02-architecture.md §4).
+anyhow = "1"
+async-trait = "0.1"
+bytes = "1"
+clap = { version = "4", features = ["derive", "env"] }
+crossterm = "0.28"
+futures = "0.3"
+globset = "0.4"
+ignore = "0.4"
+keyring = "3"
+notify = "8"
+pulldown-cmark = "0.12"
+ratatui = "0.29"
+reqwest = { version = "0.12", default-features = false, features = [
+    "json",
+    "stream",
+    "rustls-tls",
+] }
+schemars = "0.8"
+semver = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+syntect = "5"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+url = "2"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
