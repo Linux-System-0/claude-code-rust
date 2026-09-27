@@ -8,7 +8,15 @@ publish.workspace = true
 
 [dependencies]
 ccb-api.workspace = true
-protocol-anthropic.workspace = true
-protocol-openai.workspace = true
+protocol-anthropic = { workspace = true, optional = true }
+protocol-openai = { workspace = true, optional = true }
 ccb-tools.workspace = true
 ccb-session.workspace = true
+
+# Only two protocol features exist by design (Plan/01-trim-scope.md §2).
+# No other `feature()`/provider flags are provided; unlisted providers simply
+# do not compile. At least one of `anthropic` / `openai` must be enabled.
+[features]
+default = ["anthropic", "openai"]
+anthropic = ["dep:protocol-anthropic"]
+openai = ["dep:protocol-openai"]

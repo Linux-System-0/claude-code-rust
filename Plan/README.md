@@ -2,7 +2,8 @@
 
 本目录记录将当前 TypeScript 版 Claude Code CLI 重写为 Rust 的**决策、裁剪范围、目标架构、配置设计与任务列表**。
 
-> 状态：**规划阶段**。尚未编写任何 Rust 代码。
+> 状态：**Phase 0 脚手架基本完成**（T0.1–T0.5）。已建立 Cargo workspace、协议
+> feature 规划、TS 参照基线与 CI；功能实现见 `04-task-list.md` 后续 Phase。
 
 ---
 

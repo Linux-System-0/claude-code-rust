@@ -7,4 +7,11 @@ rust-version.workspace = true
 publish.workspace = true
 
 [dependencies]
-ccb-core.workspace = true
+ccb-core = { workspace = true, default-features = false }
+
+# Forward the two protocol features to `ccb-core` so this crate can be built
+# standalone while still letting the `ccb` binary select a lean protocol set.
+[features]
+default = ["anthropic", "openai"]
+anthropic = ["ccb-core/anthropic"]
+openai = ["ccb-core/openai"]

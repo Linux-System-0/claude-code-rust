@@ -3,6 +3,13 @@
 # Layout and dependency direction are defined in Plan/02-architecture.md.
 # Phase 0 / T0.1 only establishes the crate skeleton and the layering;
 # functionality is filled in by later phases.
+#
+# Feature policy (T0.2): the only Cargo features are `anthropic` and `openai`,
+# declared on the crates that pull in a protocol adapter (`ccb-core`) and
+# forwarded by `ccb-cli` / `ccb-context` / `ccb-mcp` / `ccb-tui`. There are no
+# flags for the removed providers (bedrock/vertex/foundry/gemini/grok/...);
+# unlisted providers simply do not compile. See Plan/01-trim-scope.md §2 and
+# Plan/02-architecture.md §5.
 
 [workspace]
 resolver = "2"
@@ -30,6 +37,10 @@ rust-version = "1.75"
 authors = ["claude-code-rust contributors"]
 repository = "https://github.com/Linux-System-0/claude-code-rust"
 homepage = "https://github.com/Linux-System-0/claude-code-rust"
+license = "MIT"
+readme = "README.md"
+keywords = ["claude", "cli", "ai", "coding-assistant", "repl"]
+categories = ["command-line-utilities", "development-tools"]
 # Never publish to crates.io; distribution is via release binaries.
 publish = false
 
@@ -38,14 +49,16 @@ publish = false
 ccb-api = { path = "crates/ccb-api" }
 ccb-auth = { path = "crates/ccb-auth" }
 ccb-config = { path = "crates/ccb-config" }
-ccb-context = { path = "crates/ccb-context" }
-ccb-core = { path = "crates/ccb-core" }
-ccb-mcp = { path = "crates/ccb-mcp" }
+# The protocol features live on `ccb-core`; downstream crates opt in and
+# forward them explicitly, so the workspace-level defaults are off.
+ccb-context = { path = "crates/ccb-context", default-features = false }
+ccb-core = { path = "crates/ccb-core", default-features = false }
+ccb-mcp = { path = "crates/ccb-mcp", default-features = false }
 ccb-permissions = { path = "crates/ccb-permissions" }
 ccb-session = { path = "crates/ccb-session" }
 ccb-telemetry = { path = "crates/ccb-telemetry" }
 ccb-tools = { path = "crates/ccb-tools" }
-ccb-tui = { path = "crates/ccb-tui" }
+ccb-tui = { path = "crates/ccb-tui", default-features = false }
 protocol-anthropic = { path = "crates/ccb-api/protocol-anthropic" }
 protocol-openai = { path = "crates/ccb-api/protocol-openai" }
 

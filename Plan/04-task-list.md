@@ -8,10 +8,10 @@
 ## Phase 0 — 脚手架
 
 - [x] T0.1 建立 Rust workspace（`Cargo.toml` + `crates/` 分层）
-- [ ] T0.2 Cargo feature 规划：仅 `anthropic` / `openai`，其余不提供
-- [ ] T0.3 冻结 TS 版本为参照（`reference/` 或 git tag），保留测试作验收基线
-- [ ] T0.4 CI：`cargo fmt` / `clippy -D warnings` / `cargo test` / 跨平台矩阵
-- [ ] T0.5 许可证与仓库元数据
+- [x] T0.2 Cargo feature 规划：仅 `anthropic` / `openai`，其余不提供
+- [x] T0.3 冻结 TS 版本为参照（`reference/` 或 git tag），保留测试作验收基线
+- [x] T0.4 CI：`cargo fmt` / `clippy -D warnings` / `cargo test` / 跨平台矩阵
+- [x] T0.5 许可证与仓库元数据
 
 ## Phase 1 — 基础设施
 

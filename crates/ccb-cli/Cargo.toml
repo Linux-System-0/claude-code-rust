@@ -12,7 +12,25 @@ path = "src/main.rs"
 
 [dependencies]
 ccb-config.workspace = true
-ccb-context.workspace = true
-ccb-core.workspace = true
-ccb-mcp.workspace = true
-ccb-tui.workspace = true
+ccb-context = { workspace = true, default-features = false }
+ccb-core = { workspace = true, default-features = false }
+ccb-mcp = { workspace = true, default-features = false }
+ccb-tui = { workspace = true, default-features = false }
+
+# Protocol selection for the shipped binary. Build a lean CLI with
+#   cargo build -p ccb-cli --no-default-features --features anthropic
+# Only `anthropic` and `openai` are recognised; there is no other provider.
+[features]
+default = ["anthropic", "openai"]
+anthropic = [
+    "ccb-core/anthropic",
+    "ccb-context/anthropic",
+    "ccb-mcp/anthropic",
+    "ccb-tui/anthropic",
+]
+openai = [
+    "ccb-core/openai",
+    "ccb-context/openai",
+    "ccb-mcp/openai",
+    "ccb-tui/openai",
+]
