@@ -23,10 +23,10 @@
 
 ## Phase 2 — 数据模型
 
-- [ ] T2.1 Message 类型层级（`serde` tagged enum）
-- [ ] T2.2 Tool / Permission / Progress 类型契约
-- [ ] T2.3 schema 校验层
-- [ ] T2.4 IDs、会话级状态单例（`OnceLock` / context）
+- [x] T2.1 Message 类型层级（`serde` tagged enum）
+- [x] T2.2 Tool / Permission / Progress 类型契约
+- [x] T2.3 schema 校验层
+- [x] T2.4 IDs、会话级状态单例（`OnceLock` / context）
 
 ## Phase 3 — 双协议适配层
 
