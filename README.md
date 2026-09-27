@@ -3,8 +3,9 @@
 将 [claude-code-best/claude-code](https://github.com/claude-code-best/claude-code)（TypeScript / Bun 的
 Claude Code 复原版）**按功能边界重写为 Rust** 的工程。
 
-> 状态：**Phase 0 脚手架阶段**。目标是先产出可运行的 CLI 子集，再逐步补齐工具、
-> 循环、权限与 TUI，而非最后一次性打通。当前仓库只有 workspace 骨架与工程基线。
+> 状态：**Phase 1 基础设施已完成**。CLI 参数解析与 `--version` fast-path、多层
+> settings.json 配置、无默认端点校验、`tracing`/`thiserror` 日志与错误体系、
+> 路径/平台/shell 检测均已落地。查询循环、双协议适配、工具与 TUI 由后续 Phase 补齐。
 
 ---
 
@@ -61,8 +62,9 @@ crates/
 # 构建整个 workspace（默认启用两种协议）
 cargo build --workspace
 
-# 运行 CLI（当前为占位实现，clap 解析见 T1.1）
-cargo run -p ccb-cli
+# 运行 CLI（`--help` 查看全部参数；`doctor` 校验配置）
+cargo run -p ccb-cli -- --help
+cargo run -p ccb-cli -- doctor
 ```
 
 ### Cargo Feature（只有两个）

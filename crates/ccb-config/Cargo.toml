@@ -8,3 +8,7 @@ publish.workspace = true
 
 [dependencies]
 ccb-telemetry.workspace = true
+dirs.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

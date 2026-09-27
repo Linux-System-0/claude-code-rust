@@ -15,11 +15,11 @@
 
 ## Phase 1 — 基础设施
 
-- [ ] T1.1 `clap` CLI 解析，复刻 `cli.tsx` 全部 fast-path（`--version` 等）
-- [ ] T1.2 配置系统：settings.json 多层加载 + env 合并 + Keychain
-- [ ] T1.3 **配置校验：base_url 必填，缺失给可操作报错**（见 03-configuration.md）
-- [ ] T1.4 日志/错误体系（`tracing` + `thiserror`）
-- [ ] T1.5 路径/平台工具、shell 检测
+- [x] T1.1 `clap` CLI 解析，复刻 `cli.tsx` 全部 fast-path（`--version` 等）
+- [x] T1.2 配置系统：settings.json 多层加载 + env 合并 + Keychain
+- [x] T1.3 **配置校验：base_url 必填，缺失给可操作报错**（见 03-configuration.md）
+- [x] T1.4 日志/错误体系（`tracing` + `thiserror`）
+- [x] T1.5 路径/平台工具、shell 检测
 
 ## Phase 2 — 数据模型
 
